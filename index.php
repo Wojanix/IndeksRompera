@@ -4,20 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="main.css">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="nav.css">
+   
+    
     <title>Indeks Rompera</title>
 
   </head>
   <body>
 
+    <div class="navbar">
+  <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+  <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
+  <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+  <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+</div>
+
+
+<div class="notification" id="connect"><img src="./correct.png" alt="correct">Connected successfully</div>
+
     <div class="container">
-      <div><input id="price" type="text" placeholder="Cena" /></div>
-      <div><input id="amount" type="text" placeholder="Ml" /></div>
-      <div><input id="percent" type="text" placeholder="procent" /></div>
+        <h2>Oblicz Wskaźnik Readera</h2>
+        <br>
+      <div><input class="input" id="price" type="number" placeholder="Cena" /></div>
+      <div><input class="input" id="amount" type="number" placeholder="Pojemność" /></div>
+      <div><input class="input" id="percent" type="number" placeholder="Procent" /></div>
       <button onclick="calculateRomperIndex()">Oblicz</button>
-      <br />
       <div id="index"></div>
     </div>
+    <script src="script.js" ></script>
     <?php
 
 
@@ -39,7 +53,9 @@ if ($conn->connect_error) {
     echo "Connection failed: " . $conn->connect_error;
   die;
 }
-echo "Connected successfully";
+echo '<script type="text/javascript">',
+'connected();',
+'</script>';
 
 die;
 ?>
