@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/nav.css">
    
     
     <title>Indeks Rompera</title>
@@ -13,14 +13,15 @@
   <body>
 
     <div class="navbar">
-  <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
-  <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
-  <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
-  <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+  <a class="active" href="index.php"><i class="fa fa-fw fa-home"></i> Oblicz</a>
+  <a href="pages/ranking.php"><i class="fa fa-fw fa-envelope"></i> Ranking</a>
+  <a href="pages/map.php"><i class="fa fa-fw fa-envelope"></i> Mapa</a>
+  <a href="pages/add.php"><i class="fa fa-fw fa-user"></i> Dodaj</a>
+  <a href="pages/contact.php"><i class="fa fa-fw fa-user"></i> Kontakt</a>
 </div>
 
 
-<div class="notification" id="connect"><img src="./correct.png" alt="correct">Connected successfully</div>
+<div class="notification" id="connect"><img src="./css/images/correct.png" alt="correct">Connected successfully</div>
 
     <div class="container">
         <h2>Oblicz Wskaźnik Readera</h2>
