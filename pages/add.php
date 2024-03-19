@@ -19,26 +19,39 @@
 
 <div class="notification" id="connect"><img src=".././css/images/correct.png" alt="correct">Connected successfully</div>
 
+
+    
     <div class="container">
         <!-- <h2>Pochwal Się Swoją Bestią</h2> -->
         <br>
-        <span class="form">
+
+        <?php    
+if(isset($_POST['button'])){ //check if form was submitted
+  echo "fuck";
+  $pohlavie = $_POST['gender']; //get input text
+  $plat = $_POST['salary']; //get input text
+  $plat = "Your gender is ".$pohlavie." and your salary is ".$plat;
+}    
+?>
+<form action="" method="post" class="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
        <input class="input" id="price" type="number" placeholder="Cena" />
       <input class="input" id="amount" type="number" placeholder="Pojemność" />
       <input class="input" id="percent" type="number" placeholder="Procent" />
-     <input class="input" id="price" type="number" placeholder="Cena" />
-     <input class="input" id="amount" type="number" placeholder="Pojemność" />
-     <input class="input" id="percent" type="number" placeholder="Procent" />
-      <input class="input" id="price" type="number" placeholder="Cena" />
-      <input class="input" id="amount" type="number" placeholder="Pojemność" />
-      <input class="input" id="percent" type="number" placeholder="Procent" />
-      <input class="input" id="price" type="number" placeholder="Cena" />
-      <input class="input" id="amount" type="number" placeholder="Pojemność" />
-      <input class="input" id="percent" type="number" placeholder="Procent" />
-      </span>
-      <button onclick="calculateRomperIndex()">Oblicz</button>
+     <input class="input" id="name" type="text" placeholder="Nazwa" />
+     <input class="input" id="amount" type="number" placeholder="Marka" />
+     <input class="input" id="percent" type="number" placeholder="Wskaznik" />
+      <input class="input" id="price" type="number" placeholder="Ranking" />
+      <input class="input" id="amount" type="number" placeholder="Dostepnosc" />
+      <input class="input" id="percent" type="number" placeholder="Smak" />
+      <input class="input" id="price" type="number" placeholder="Kolor" />
+      <input class="input" id="amount" type="number" placeholder="Rodzaj" />
+      <input class="input" id="percent" type="number" placeholder="Typ" />
+<button type="submit" name="button" formmethod="post">Dodaj</button>
+</form>
       <div id="index"></div>
     </div>
+
+
     <script src="../script.js" ></script>
     <?php
 
