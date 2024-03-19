@@ -40,7 +40,7 @@
       <input class="input" name="kolor" type="text" placeholder="Kolor" />
       <input class="input" name="rodzaj" type="text" placeholder="Rodzaj" />
       <input class="input" name="typ" type="text" placeholder="Typ" />
-      <input id="star-value" name="ranking" class="star_value" type="number" />
+      <input id="ranking" name="ranking" class="ranking" type="number" />
   
 
     </div>
@@ -129,12 +129,14 @@ echo '<script type="text/javascript">',
 '</script>';
 
 
+
 if(isset($_POST['button'])){ 
 
   $sql = "INSERT INTO napoj (nazwa, marka, cena, ilosc, procent, wskaznik, ranking, dostepnosc, smak, kolor, rodzaj, typ)
-  VALUES ('".$_POST['nazwa']."', '".$_POST['marka']."', '".$_POST['cena']."', '".$_POST['ilosc']."', '".$_POST['procent']."', '".$_POST['procent']*$_POST['ilosc']*0.01/$_POST['cena']."', '".$_POST['ranking']."', '".$_POST['dostepnosc']."', '".$_POST['smak']."', '".$_POST['kolor']."', '".$_POST['rodzaj']."', '".$_POST['typ']."')";
+  VALUES ('".$_POST['nazwa']."', '".$_POST['marka']."', '".$_POST['cena']."', '".$_POST['ilosc']."', '".$_POST['procent']."', '".$_POST['procent']*$_POST['ilosc']*0.01/$_POST['cena']."', '".intval($_POST["ranking"])."', '".$_POST['dostepnosc']."', '".$_POST['smak']."', '".$_POST['kolor']."', '".$_POST['rodzaj']."', '".$_POST['typ']."')";
   $result = $conn->query($sql);
 
+  echo "Udało się wysłać twój napój";
 
   
 }    

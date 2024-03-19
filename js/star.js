@@ -1,3 +1,3 @@
 const changeStarValue = (arg) => {
-  document.getElementById("star-value").value = arg;
+  document.getElementById("ranking").value = arg;
 };
