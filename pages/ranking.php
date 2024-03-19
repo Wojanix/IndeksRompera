@@ -6,6 +6,7 @@
     
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/ranking.css">
     <title>Ranking</title>
 </head>
 <body>
@@ -17,7 +18,16 @@
   <a href="contact.php"><i class="fa fa-fw fa-user"></i> Kontakt</a>
 </div>
 <div class="container">
-<?php
+
+<table>
+  <tr>
+    <th>Miejsce</th>
+    <th>Etykieta</th>
+    <th>Nazwa</th>
+    <th>Wskaźnik</th>
+    <th>Punkty</th>
+  </tr>
+  <?php
 
 
 // $servername = "serwer2396565.home.pl";
@@ -42,24 +52,25 @@ echo '<script type="text/javascript">',
 '</script>';
 
 
-if(isset($_POST['button'])){ //check if form was submitted
-  echo "Fcuker".$_POST["price"]." <-- cena".$_POST["amount"]." cos";
 
-  $sql = "SELECT * from test";
+  $sql = "SELECT * from napoj";
   $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["Id"]. " - Name: " . $row["text"]."<br>";
+    echo "<tr>";
+    echo "<td>" . $row["Id"]."  </td> <td>zdjecie</td><td>".$row["nazwa"]."</td><td>".$row["wskaznik"]."</td><td>". $row["ranking"]."/10</td>";
+    echo "</tr>";
   }
 } else {
   echo "0 results";
 }
-  
-}    
+
 
 ?>
+</table>
+
 </div>
 </body>
 </html>

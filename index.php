@@ -24,6 +24,7 @@
 <div class="notification" id="connect"><img src="./css/images/correct.png" alt="correct">Connected successfully</div>
 
     <div class="container">
+      <div class="center">
         <h2>Oblicz Wskaźnik Rompera</h2>
         <br>
       <div><input class="input" id="price" type="number" placeholder="Cena" /></div>
@@ -31,6 +32,7 @@
       <div><input class="input" id="percent" type="number" placeholder="Procent" /></div>
       <button onclick="calculateRomperIndex()">Oblicz</button>
       <div id="index"></div>
+      </div>
     </div>
     <script src="script.js" ></script>
     <?php
@@ -49,11 +51,6 @@ $database = "indeksrompera";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
 
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
 
 // Check connection
 if ($conn->connect_error) {

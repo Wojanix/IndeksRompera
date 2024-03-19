@@ -22,7 +22,7 @@
   .container {
     justify-content: center;
     align-items: center;
-    display: flex;
+    display: block;
     flex-direction: column;
     width: 80%;
     max-width: 900px;

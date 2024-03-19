@@ -25,7 +25,8 @@
 
     
     <div class="container">
-        <h2>Pochwal Się Swoją Bestią</h2>
+      <div class="center">
+        <h2>Pochwal Się Swoją Bestią</h2></div> 
         <br>
 
         <form action="" method="post" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
