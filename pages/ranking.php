@@ -16,5 +16,50 @@
   <a href="add.php"><i class="fa fa-fw fa-user"></i> Dodaj</a>
   <a href="contact.php"><i class="fa fa-fw fa-user"></i> Kontakt</a>
 </div>
+<div class="container">
+<?php
+
+
+// $servername = "serwer2396565.home.pl";
+// $username = "37544078_indeksrompera";
+// $password = "<Romper123>";
+// $database = "37544078_indeksrompera";
+
+$servername = "localhost";
+$username = "admin3";
+$password = "admin3";
+$database = "indeksrompera";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    echo "Connection failed: " . $conn->connect_error;
+}
+echo '<script type="text/javascript">',
+'connected();',
+'</script>';
+
+
+if(isset($_POST['button'])){ //check if form was submitted
+  echo "Fcuker".$_POST["price"]." <-- cena".$_POST["amount"]." cos";
+
+  $sql = "SELECT * from test";
+  $result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["Id"]. " - Name: " . $row["text"]."<br>";
+  }
+} else {
+  echo "0 results";
+}
+  
+}    
+
+?>
+</div>
 </body>
 </html>
