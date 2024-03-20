@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/ranking.css">
+    <script src="../js/ranking.js"></script>
     <title>Ranking</title>
 </head>
 <body>
@@ -18,15 +19,18 @@
   <a href="contact.php"><i class="fa fa-fw fa-user"></i> Kontakt</a>
 </div>
 <div class="container">
-
 <table>
+  
+
   <tr>
-    <th>Miejsce</th>
-    <th>Etykieta</th>
-    <th>Nazwa</th>
-    <th>Wskaźnik</th>
-    <th>Punkty</th>
+    <th >Miejsce</th>
+    <th >Etykieta</th>
+    <th >Nazwa</th>
+    <th >Wskaźnik</th>
+    <th >Punkty</th>
+    <BUTTON type='submit' name='aa' method='post'>button</BUTTON>
   </tr>
+  
   <?php
 
 
@@ -40,24 +44,27 @@ $username = "admin3";
 $password = "admin3";
 $database = "indeksrompera";
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $database);
 
-// Check connection
 if ($conn->connect_error) {
     echo "Connection failed: " . $conn->connect_error;
 }
-echo '<script type="text/javascript">',
-'connected();',
-'</script>';
 
 
 
-  $sql = "SELECT * from napoj";
+$result = "";
+
+if (isset($_POST['aa'])) {
+  $sql = "SELECT * from napoj order by ranking desc";
   $result = $conn->query($sql);
+  } else {
+    $sql = "SELECT * from napoj";
+    $result = $conn->query($sql);
+  }
+
+ //shit commit for stats
 
 if ($result->num_rows > 0) {
-  // output data of each row
   while($row = $result->fetch_assoc()) {
     echo "<tr>";
     echo "<td>" . $row["Id"]."  </td> <td>zdjecie</td><td>".$row["nazwa"]."</td><td>".$row["wskaznik"]."</td><td>". $row["ranking"]."/10</td>";
@@ -70,7 +77,6 @@ if ($result->num_rows > 0) {
 
 ?>
 </table>
-
 </div>
 </body>
 </html>
