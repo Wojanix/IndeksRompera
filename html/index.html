@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pl" translate="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <title>Indeks Rompera</title>
+  </head>
+  <body>
+    <div class="container">
+      <form action="send.php" method="post">
+        <div><input id="price" type="text" placeholder="Cena" /></div>
+        <div><input id="amount" type="text" placeholder="Ml" /></div>
+        <div><input id="percent" type="text" placeholder="procent" /></div>
+        <button onclick="calculateIndex()">Oblicz</button>
+        <button type="submit" value="Submit"></button>
+      </form>
+      <br />
+      <div id="index"></div>
+    </div>
+  </body>
+</html>
