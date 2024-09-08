@@ -15,7 +15,7 @@
 <div class="notification" id="connect"><img src=".././css/images/correct.png" alt="correct">Connected successfully</div>
 
     <div class="container">
-        <!-- <h2>Pochwal Się Swoją Bestią</h2> -->
+        <h2>Pochwal Się Swoją Bestią</h2>
         <br>
         <span class="form">
        <input class="input" id="price" type="number" placeholder="Cena" />
@@ -44,8 +44,8 @@
 // $database = "37544078_indeksrompera";
 
 $servername = "localhost";
-$username = "admin3";
-$password = "admin3";
+$username = "admin1";
+$password = "admin1";
 $database = "indeksrompera";
 
 // Create connection

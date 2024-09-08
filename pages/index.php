@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
    
     
     <title>Indeks Rompera</title>
 
   </head>
   <body>
-  <?php include './components/header.php';?>
+  <?php include '../components/header.php';?>
     
 
 
@@ -36,8 +36,8 @@
 // $database = "37544078_indeksrompera";
 
 $servername = "localhost";
-$username = "admin3";
-$password = "admin3";
+$username = "root";
+$password = "root";
 $database = "indeksrompera";
 
 // Create connection
