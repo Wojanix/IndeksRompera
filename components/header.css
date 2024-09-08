@@ -1,0 +1,40 @@
+.navbar {
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+    overflow: auto;
+    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 8.5px );
+    -webkit-backdrop-filter: blur( 8.5px );
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    align-items: center;
+  }
+  
+  /* Navbar links */
+  .navbar a {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    display: inline-block;
+  }
+  
+  /* Navbar links on mouse-over */
+  .navbar a:hover {
+    background-color: #000;
+  }
+  
+  /* Current/active navbar link */
+  .active {
+    background-color: #573b14;
+  }
+  
+  /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+  @media screen and (max-width: 500px) {
+    .navbar a {
+      float: none;
+      display: block;
+    }
+  }

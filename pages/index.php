@@ -11,14 +11,8 @@
 
   </head>
   <body>
-
-    <div class="navbar">
-  <a class="active" href="index.php"><i class="fa fa-fw fa-home"></i> Oblicz</a>
-  <a href="pages/ranking.php"><i class="fa fa-fw fa-envelope"></i> Ranking</a>
-  <a href="pages/map.php"><i class="fa fa-fw fa-envelope"></i> Mapa</a>
-  <a href="pages/add.php"><i class="fa fa-fw fa-user"></i> Dodaj</a>
-  <a href="pages/contact.php"><i class="fa fa-fw fa-user"></i> Kontakt</a>
-</div>
+  <?php include './components/header.php';?>
+    
 
 
 <div class="notification" id="connect"><img src="./css/images/correct.png" alt="correct">Connected successfully</div>
