@@ -10,7 +10,14 @@
 </head>
 <body>
   
-<?php include '../components/header.php';?>
+<?php include '../components/header.php';
+
+$sort = "";
+if(isset($_GET["sort"])){
+    $sort = htmlspecialchars($_GET["sort"]);
+}
+
+?>
 
 
 
@@ -18,13 +25,13 @@
 <table>
 <tr>
     <th>
-        <a href='ranking.php?sort=name'>Name</a>
+        <?php echo "<a href='ranking.php?sort=name&again=".$sort."'>Name</a>"; ?>
     </th>
     <th>
-        <a href='ranking.php?sort=rating'>Rating</a>
+    <?php echo "<a href='ranking.php?sort=rating&again=".$sort."'>IR</a>"; ?>
     </th>
     <th>
-        <a href='ranking.php?sort=author'>Author</a>
+    <?php echo "<a href='ranking.php?sort=author&again=".$sort."'>Author</a>"; ?>
     </th>
 </tr>
 
@@ -55,9 +62,8 @@ $records = [
     ["name" => "Aberlour", "rating" => 8, "author" => "Scotland"]
 ];
 
-
-isset($_GET["sort"]) ? sortRecords($records, htmlspecialchars($_GET["sort"])) : null;
-
+if(isset($_GET["sort"])) { sortRecords($records, htmlspecialchars($_GET["sort"]));}
+if(isset($_GET["again"])){$records = htmlspecialchars($_GET["sort"])===htmlspecialchars($_GET["again"]) ? array_reverse($records):$records;}
 
 foreach($records as $record){
     echo "<tr><th>".$record["name"]."</th><th>".$record["rating"]."</th><th>".$record["author"]."</th></tr>";
@@ -67,13 +73,9 @@ foreach($records as $record){
 
 
 
-
-
-
 <?php
 function sortRecords(array &$records, string $sortKey) {
     usort($records, function ($a, $b) use ($sortKey) {
-        // Ensure the sorting key exists in the array elements
         if (!isset($a[$sortKey]) || !isset($b[$sortKey])) {
             return 0;
         }
@@ -82,8 +84,6 @@ function sortRecords(array &$records, string $sortKey) {
         if ($a[$sortKey] == $b[$sortKey]) {
             return 0;
         }
-
-        // Sort numerically for 'rating', alphabetically for others
         if ($sortKey === 'rating') {
             return $a[$sortKey] <=> $b[$sortKey];
         }
