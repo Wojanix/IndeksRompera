@@ -17,6 +17,13 @@ if(isset($_GET["sort"])){
     $sort = htmlspecialchars($_GET["sort"]);
 }
 
+function ifDesc($newSort){
+    if(isset($_GET["desc"])){
+        if($_GET["sort"]==$newSort&&($_GET["desc"]==false)){
+            return 1;
+        } else return 0;
+    } else return 0;
+}
 ?>
 
 
@@ -25,13 +32,13 @@ if(isset($_GET["sort"])){
 <table>
 <tr>
     <th>
-        <?php echo "<a href='ranking.php?sort=name&again=".$sort."'>Name</a>"; ?>
+        <?php echo "<a href='ranking.php?sort=name&desc=".ifDesc("name")."'>Name</a>"; ?>
     </th>
     <th>
-    <?php echo "<a href='ranking.php?sort=rating&again=".$sort."'>IR</a>"; ?>
+    <?php echo "<a href='ranking.php?sort=rating&desc=".ifDesc("rating")."'>IR</a>"; ?>
     </th>
     <th>
-    <?php echo "<a href='ranking.php?sort=author&again=".$sort."'>Author</a>"; ?>
+    <?php echo "<a href='ranking.php?sort=author&desc=".ifDesc("author")."'>Author</a>"; ?>
     </th>
 </tr>
 
@@ -63,7 +70,8 @@ $records = [
 ];
 
 if(isset($_GET["sort"])) { sortRecords($records, htmlspecialchars($_GET["sort"]));}
-if(isset($_GET["again"])){$records = htmlspecialchars($_GET["sort"])===htmlspecialchars($_GET["again"]) ? array_reverse($records):$records;}
+
+if(isset($_GET["desc"])){$records = htmlspecialchars($_GET["desc"])==1 ? array_reverse($records):$records;}
 
 foreach($records as $record){
     echo "<tr><th>".$record["name"]."</th><th>".$record["rating"]."</th><th>".$record["author"]."</th></tr>";
