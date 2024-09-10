@@ -36,16 +36,11 @@
     </div>
     <script src="../script.js" ></script>
     <?php
-
-
-// $servername = "serwer2396565.home.pl";
-// $username = "37544078_indeksrompera";
-// $password = "<Romper123>";
-// $database = "37544078_indeksrompera";
+    
 
 $servername = "localhost";
-$username = "admin1";
-$password = "admin1";
+$username = "root";
+$password = "";
 $database = "indeksrompera";
 
 // Create connection

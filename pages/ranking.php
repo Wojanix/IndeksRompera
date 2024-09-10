@@ -56,22 +56,31 @@ function ifDesc($newSort){
 <table>
 <tr>
     <th>
-        <?php echo "<a href='ranking.php?sort=rank&desc=".ifDesc("rank")."'>Rank</a>"; ?>
-    </th>
-    <th>
-        <?php echo "<a href='ranking.php?sort=image&desc=".ifDesc("image")."'>Image</a>"; ?>
+        <?php echo "<a href='ranking.php?sort=number&desc=".ifDesc("number")."'>Number</a>"; ?>
     </th>
     <th>
         <?php echo "<a href='ranking.php?sort=name&desc=".ifDesc("name")."'>Name</a>"; ?>
     </th>
     <th>
-        <?php echo "<a href='ranking.php?sort=price&desc=".ifDesc("price")."'>Price</a>"; ?>
+        <?php echo "<a href='ranking.php?sort=image&desc=".ifDesc("image")."'>Image</a>"; ?>
+    </th>
+    <th>
+        <?php echo "<a href='ranking.php?sort=ir&desc=".ifDesc("ir")."'>Indeks</a>"; ?>
     </th>
     <th>
         <?php echo "<a href='ranking.php?sort=rating&desc=".ifDesc("rating")."'>Rating</a>"; ?>
     </th>
     <th>
+        <?php echo "<a href='ranking.php?sort=price&desc=".ifDesc("price")."'>Price</a>"; ?>
+    </th>
+    <th>
         <?php echo "<a href='ranking.php?sort=quantity&desc=".ifDesc("quantity")."'>Quantity</a>"; ?>
+    </th>
+    <th>
+        <?php echo "<a href='ranking.php?sort=percent&desc=".ifDesc("percent")."'>Percent</a>"; ?>
+    </th>
+    <th>
+        <?php echo "<a href='ranking.php?sort=type&desc=".ifDesc("type")."'>Type</a>"; ?>
     </th>
     <th>
         <?php echo "<a href='ranking.php?sort=brand&desc=".ifDesc("brand")."'>Brand</a>"; ?>
@@ -86,6 +95,14 @@ function ifDesc($newSort){
 
 
 <?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "indeksrompera";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
 
 $records = [
     ['rank' => 1, 'image' => 'https://example.com/whiskey1.jpg', 'name' => 'Highland Reserve', 'price' => 59.99, 'rating' => 4.8, 'quantity' => 75, 'brand' => 'Highland Spirits', 'region' => 'Scotland', 'country' => 'United Kingdom'],
