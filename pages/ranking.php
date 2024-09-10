@@ -48,7 +48,26 @@ function ifDesc($newSort){
     </div>
 </div>
 
+<?php
 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "indeksrompera";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    echo "Connection failed: " . $conn->connect_error;
+  die;
+}
+echo '<script type="text/javascript">',
+'connected();',
+'</script>';
+
+?>
 
 
 
@@ -98,24 +117,6 @@ function ifDesc($newSort){
 
 
 <?php
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "indeksrompera";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    echo "Connection failed: " . $conn->connect_error;
-  die;
-}
-echo '<script type="text/javascript">',
-'connected();',
-'</script>';
-
 $sql = "SELECT * FROM drinks"; 
 $records = mysqli_query($conn, $sql);
 
@@ -131,10 +132,11 @@ if(isset($_GET["sort"])) { sortRecords($records, htmlspecialchars($_GET["sort"])
 if(isset($_GET["desc"])){$records = htmlspecialchars($_GET["desc"])==1 ? array_reverse($records):$records;}
 
 foreach($records as $record){
-    echo "<tr>
+    echo "
+    <tr onclick='window.location = `drink`+this.cells[0].textContent'>
     <td>".$record["id"]."</td>
     <td>".$record["name"]."</td>
-    <td><img src='".$record["image"]."' alt='".$record["name"]."' style='width:50px;height:auto;'></td>
+    <td><img src='".$record["image"]."' alt='".$record["name"]."' style='width:150px;height:auto;'></td>
     <td>".$record["ir"]."</td>
     <td>".$record["rating"]."</td>
     <td>".$record["price"]."</td>

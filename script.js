@@ -17,3 +17,7 @@ const connected = () => {
   }, 1000);
   console.log("2");
 };
+
+const redirect = (tr) => {
+  console.log(tr);
+};

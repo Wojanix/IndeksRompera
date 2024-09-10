@@ -7,20 +7,28 @@ td, th{
     color: rgb(0, 0, 0);
 }
 
+tbody{
+    border-radius: 8px;
+}
 th{
     
     background: rgba(255, 255, 255, 0.9);
 }
 
 tr{
-    
+    transition: .5s;
+    cursor: pointer;
     background: rgba(204, 204, 204, 0.6);
 }
+
 tr:nth-child(even){
     background: rgba(255, 255, 255, 0.6);
 }
 
 
+tr:hover{
+    background-color: rgb(100, 71, 13);
+}
 
 th a{
     color: rgb(0, 0, 0);
