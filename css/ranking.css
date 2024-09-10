@@ -4,6 +4,28 @@
 
 td, th{
     padding: 8px;
+    color: rgb(0, 0, 0);
+}
+
+th{
+    
+    background: rgba(255, 255, 255, 0.9);
+}
+
+tr{
+    
+    background: rgba(204, 204, 204, 0.6);
+}
+tr:nth-child(even){
+    background: rgba(255, 255, 255, 0.6);
+}
+
+
+
+th a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .dropdown {
