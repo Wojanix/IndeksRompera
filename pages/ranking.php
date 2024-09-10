@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/ranking.css">
+    <script src="../script.js" ></script>
     <title>Ranking</title>
 </head>
 <body>
@@ -28,6 +29,8 @@ function ifDesc($newSort){
 ?>
 
 <!-- Filters -->
+<div class="notification" id="connect"><img src=".././css/images/correct.png" alt="correct">Connected successfully</div>
+
  <section class="filters">
 
 <div class="dropdown">
@@ -103,6 +106,16 @@ $database = "indeksrompera";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    echo "Connection failed: " . $conn->connect_error;
+  die;
+}
+echo '<script type="text/javascript">',
+'connected();',
+'</script>';
+
 
 $records = [
     ['rank' => 1, 'image' => 'https://example.com/whiskey1.jpg', 'name' => 'Highland Reserve', 'price' => 59.99, 'rating' => 4.8, 'quantity' => 75, 'brand' => 'Highland Spirits', 'region' => 'Scotland', 'country' => 'United Kingdom'],
