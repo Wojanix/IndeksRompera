@@ -21,6 +21,7 @@
   <span class="form">
    <input required class="input" name="name" id="name" type="text" placeholder="Nazwa" />
    <input required class="input" name="rating" id="rating" type="number" placeholder="0/10" />
+   <input required class="input" name="image" id="image" type="text" placeholder="link z internetu do zdjecia" />
    <input required class="input" name="price" id="price" type="number" placeholder="Cena" />
    <input required class="input" name="quantity" id="quantity" type="number" placeholder="Ilość w ml" />
    <input required class="input" name="percent" id="percent" type="number" placeholder="Procent %" />

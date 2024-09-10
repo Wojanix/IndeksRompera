@@ -59,7 +59,7 @@ function ifDesc($newSort){
 <table>
 <tr>
     <th>
-        <?php echo "<a href='ranking.php?sort=number&desc=".ifDesc("number")."'>Number</a>"; ?>
+        <?php echo "<a href='ranking.php?sort=id&desc=".ifDesc("id")."'>Number</a>"; ?>
     </th>
     <th>
         <?php echo "<a href='ranking.php?sort=name&desc=".ifDesc("name")."'>Name</a>"; ?>
@@ -116,34 +116,31 @@ echo '<script type="text/javascript">',
 'connected();',
 '</script>';
 
+$sql = "SELECT * FROM drinks"; 
+$records = mysqli_query($conn, $sql);
 
-$records = [
-    ['rank' => 1, 'image' => 'https://example.com/whiskey1.jpg', 'name' => 'Highland Reserve', 'price' => 59.99, 'rating' => 4.8, 'quantity' => 75, 'brand' => 'Highland Spirits', 'region' => 'Scotland', 'country' => 'United Kingdom'],
-    ['rank' => 2, 'image' => 'https://example.com/vodka1.jpg', 'name' => 'Crystal Clear Vodka', 'price' => 29.99, 'rating' => 4.5, 'quantity' => 150, 'brand' => 'Crystal Distillers', 'region' => 'Moscow', 'country' => 'Russia'],
-    ['rank' => 3, 'image' => 'https://example.com/gin1.jpg', 'name' => 'London Dry Gin', 'price' => 34.99, 'rating' => 4.6, 'quantity' => 100, 'brand' => 'London Spirits', 'region' => 'London', 'country' => 'United Kingdom'],
-    ['rank' => 4, 'image' => 'https://example.com/rum1.jpg', 'name' => 'Caribbean Gold Rum', 'price' => 39.99, 'rating' => 4.4, 'quantity' => 80, 'brand' => 'Island Liquors', 'region' => 'Caribbean', 'country' => 'Barbados'],
-    ['rank' => 5, 'image' => 'https://example.com/tequila1.jpg', 'name' => 'Aztec Tequila', 'price' => 44.99, 'rating' => 4.7, 'quantity' => 90, 'brand' => 'Aztec Spirits', 'region' => 'Jalisco', 'country' => 'Mexico'],
-    ['rank' => 6, 'image' => 'https://example.com/brandy1.jpg', 'name' => 'Fine French Brandy', 'price' => 54.99, 'rating' => 4.8, 'quantity' => 60, 'brand' => 'French Elegance', 'region' => 'Cognac', 'country' => 'France'],
-    ['rank' => 7, 'image' => 'https://example.com/liqueur1.jpg', 'name' => 'Berry Liqueur', 'price' => 24.99, 'rating' => 4.3, 'quantity' => 200, 'brand' => 'Berry Delight', 'region' => 'Alsace', 'country' => 'France'],
-    ['rank' => 8, 'image' => 'https://example.com/champagne1.jpg', 'name' => 'Vintage Champagne', 'price' => 89.99, 'rating' => 4.9, 'quantity' => 30, 'brand' => 'Champagne Royale', 'region' => 'Champagne', 'country' => 'France'],
-    // ['rank' => 9, 'image' => 'https://example.com/whiskey2.jpg', 'name' => 'Smooth Bourbon', 'price' => 49.99, 'rating' => 4.6, 'quantity' => 70, 'brand' => 'Bourbon Masters', 'region' => 'Kentucky', 'country' => 'United States'],
-    // ['rank' => 10, 'image' => 'https://example.com/vodka2.jpg', 'name' => 'Silver Label Vodka', 'price' => 32.99, 'rating' => 4.4, 'quantity' => 130, 'brand' => 'Silver Distillers', 'region' => 'St. Petersburg', 'country' => 'Russia'],
-    // ['rank' => 11, 'image' => 'https://example.com/gin2.jpg', 'name' => 'Botanical Gin', 'price' => 37.99, 'rating' => 4.5, 'quantity' => 85, 'brand' => 'Botanical Blends', 'region' => 'Amsterdam', 'country' => 'Netherlands'],
-    // ['rank' => 12, 'image' => 'https://example.com/rum2.jpg', 'name' => 'Aged Rum', 'price' => 42.99, 'rating' => 4.6, 'quantity' => 95, 'brand' => 'Aged Spirits', 'region' => 'Jamaica', 'country' => 'Jamaica'],
-    // ['rank' => 13, 'image' => 'https://example.com/tequila2.jpg', 'name' => 'Silver Tequila', 'price' => 39.99, 'rating' => 4.4, 'quantity' => 110, 'brand' => 'Silver Agave', 'region' => 'Jalisco', 'country' => 'Mexico']
-];
+
+if ($records) {
+    $records = convertDatabaseResults($records);
+    // print_r($formattedRecords);
+} else {
+    echo "Error: " . mysqli_error($conn);
+}
 
 if(isset($_GET["sort"])) { sortRecords($records, htmlspecialchars($_GET["sort"]));}
 if(isset($_GET["desc"])){$records = htmlspecialchars($_GET["desc"])==1 ? array_reverse($records):$records;}
 
 foreach($records as $record){
     echo "<tr>
-    <td>".$record["rank"]."</td>
-    <td><img src='".$record["image"]."' alt='".$record["name"]."' style='width:50px;height:auto;'></td>
+    <td>".$record["id"]."</td>
     <td>".$record["name"]."</td>
-    <td>".$record["price"]."</td>
+    <td><img src='".$record["image"]."' alt='".$record["name"]."' style='width:50px;height:auto;'></td>
+    <td>".$record["ir"]."</td>
     <td>".$record["rating"]."</td>
+    <td>".$record["price"]."</td>
     <td>".$record["quantity"]."</td>
+    <td>".$record["percent"]."</td>
+    <td>".$record["type"]."</td>
     <td>".$record["brand"]."</td>
     <td>".$record["region"]."</td>
     <td>".$record["country"]."</td>
@@ -170,6 +167,32 @@ function sortRecords(array &$records, string $sortKey) {
         }
         return strcmp($a[$sortKey], $b[$sortKey]);
     });
+}
+
+function convertDatabaseResults($resultArg) {
+    // Initialize an empty array to hold the formatted records
+    $formattedRecords = [];
+    
+    // Loop through each row fetched from the SQL result
+    while ($row = mysqli_fetch_assoc($resultArg)) {
+        // Map the database fields to the required format
+        $formattedRecords[] = [
+            'id' => $row['id'],     
+            'name' => $row['name'],          // Adjust the key names to match your test array structure
+            'image' => $row['image'],
+            'ir' => $row['ir'],
+            'rating' => floatval($row['rating']), // Convert rating to float
+            'price' => floatval($row['price']),   // Convert price to float if necessary
+            'quantity' => intval($row['quantity']), // Convert quantity to integer
+            'percent' => intval($row['percent']), // Convert quantity to integer
+            'type' => $row['type'], 
+            'brand' => $row['brand'],
+            'country' => $row['country'],
+            'region' => $row['region']
+        ];
+    }
+
+    return $formattedRecords;
 }
 ?>
 
