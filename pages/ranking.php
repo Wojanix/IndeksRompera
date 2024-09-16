@@ -150,7 +150,8 @@ foreach($records as $record){
 }
 ?>
 </table>
-
+<br><br>
+<p>.</p>
 
 
 <?php

@@ -22,8 +22,9 @@
 
 }
 body{
-background-blend-mode:difference;
+background-blend-mode:multiply;
 }
+
 
 
 
@@ -65,6 +66,40 @@ background-blend-mode:difference;
     width: 170px;
     text-align: center;
 }
+
+.leftTop a,  .rightTop a{
+    text-decoration: none;
+    color: #845a1f;
+}
+
+.leftTop a:after {
+    content: " - Back";
+    position: relative;
+    opacity: 0;
+    left: -20px;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+  }
+  
+  .leftTop a:hover:after {
+    opacity: 1;
+    left: 0px;
+  }
+
+  .rightTop a:before {
+    content: " Edit -";
+    position: relative;
+    opacity: 0;
+    right: -12px;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+  }
+  
+  .rightTop a:hover:before {
+    opacity: 1;
+    right: 10px;
+  }
+
  .leftTop{
     position: absolute;
     top: 30px;
@@ -73,6 +108,7 @@ background-blend-mode:difference;
     color:#845a1f;
     cursor: pointer;
     font-size: 18px;
+    transition: .5s;
  }
 
  .rightTop{
@@ -83,6 +119,7 @@ background-blend-mode:difference;
     color:#845a1f;
     cursor: pointer;
     font-size: 18px;
+    transition: .5s;
  }
 
 .drinkInfo{
@@ -99,6 +136,10 @@ background-blend-mode:difference;
     font-weight: 600;
     font-size: 19px;
     color: rgb(59, 59, 59);
+}
+
+.drinkInfo:not(:first-child){
+    border-left: 1px solid black;
 }
 
 .titleDrinkInfo{
