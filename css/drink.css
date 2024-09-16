@@ -17,7 +17,8 @@
     border-radius: 15px;
     
 
-    transform: translate(0,-65px);
+    transform: translate(0,-70px);
+    transition: .5s;
 
 }
 body{
@@ -28,7 +29,7 @@ background-blend-mode:difference;
 
 .avatar{
     
-    transform: translate(0,55px);
+    transform: translate(0,50px);
     z-index: 10000000000;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);

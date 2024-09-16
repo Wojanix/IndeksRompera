@@ -24,7 +24,7 @@ echo $_GET["id"];
     <div class="leftTop"> | Back </div>
     <div class="rightTop">| Change</div>
 
-    <h2>Amarena</h2>
+    <div class="bigT">Amarena</div>
     <p class="shortT smallT">Napój winny typu jabol</p>
     <br>
     <p class="midT"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, vero aliquam? Omnis culpa dolor 
@@ -38,8 +38,6 @@ echo $_GET["id"];
 
         <button>Show More</button>
     </section>
-   <br><br><br>
-   <p>sd</p>
    
 </body>
 </html>
