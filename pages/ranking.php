@@ -133,7 +133,7 @@ if(isset($_GET["desc"])){$records = htmlspecialchars($_GET["desc"])==1 ? array_r
 
 foreach($records as $record){
     echo "
-    <tr onclick='window.location = `drink`+this.cells[0].textContent'>
+    <tr onclick='window.location = `drink.php?id=`+this.cells[0].textContent'>
     <td>".$record["id"]."</td>
     <td>".$record["name"]."</td>
     <td><img src='".$record["image"]."' alt='".$record["name"]."' style='width:150px;height:auto;'></td>
