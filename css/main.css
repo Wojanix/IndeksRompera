@@ -19,26 +19,29 @@
     flex-direction: column;
   }
   
-  .container {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    max-width: 900px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
+  .rankingTable, .container{
+    margin-top: 30px;
+    background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background: rgba( 255, 255, 255, 0.15 );
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     backdrop-filter: blur( 8.5px );
     -webkit-backdrop-filter: blur( 8.5px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    margin: auto;
-  }
-  
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+    height: fit-content;
+    padding: 50px 80px 60px 80px;
+    border-radius: 15px;   
+
+    transform: translate(0,-70px);
+    transition: .5s;
+}
+
   .notification{
     padding: 15px 20px;
     background-color: whitesmoke;
@@ -129,6 +132,7 @@
 
 .hugeT{
   font-size: 40px;
+  font-weight: 600;
   text-align: center;
 }
 
@@ -196,4 +200,22 @@
   text-align: center;
   gap: 25px;
 
+}
+
+.centerCol{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.centerRow{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
 }

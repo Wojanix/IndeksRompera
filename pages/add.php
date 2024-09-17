@@ -15,9 +15,12 @@
 
 <div class="notification" id="connect"><img src=".././css/images/correct.png" alt="correct">Connected successfully</div>
 
-<form class="container" action="" method="POST">
+<section class="container">
+<div class="leftTop"> <a href="ranking.php">| Cofnij</a> </div>
+    <div class="rightTop"><a href="ranking.php">Edytuj |</a></div>
+
+<form class="centerCol" action="" method="POST">
     <h2>Pochwal Się Swoją Bestią</h2>
-    <br>
   <span class="form">
    <input required class="input" name="name" id="name" type="text" placeholder="Nazwa" />
    <input required class="input" name="rating" id="rating" type="number" placeholder="0/10" />
@@ -81,5 +84,6 @@ if(isset($_POST["submit"])){
 }
 
 ?>
+</section>
 </body>
 </html>

@@ -31,22 +31,8 @@ function ifDesc($newSort){
 <!-- Filters -->
 <div class="notification" id="connect"><img src=".././css/images/correct.png" alt="correct">Connected successfully</div>
 
- <section class="filters">
 
-<div class="dropdown">
-    <div class="dropdown-button">Type    v</div>
-    <div class="dropdown-content">
-    <label><input type="checkbox" value="Beer"> Beer</label>
-<label><input type="checkbox" value="Wine"> Wine</label>
-<label><input type="checkbox" value="Gin"> Gin</label>
-<label><input type="checkbox" value="Rum"> Rum</label>
-<label><input type="checkbox" value="Tequila"> Tequila</label>
-<label><input type="checkbox" value="Vodka"> Vodka</label>
-<label><input type="checkbox" value="Whisky"> Whisky</label>
-<label><input type="checkbox" value="Champagne"> Champagne</label>
 
-    </div>
-</div>
 
 <?php
 
@@ -72,8 +58,6 @@ echo '<script type="text/javascript">',
 
 
 
-</section>
-
 <!-- Table -->
  <section class="rankingTable">
  <div class="leftTop"> <a href="ranking.php">| Cofnij</a> </div>
@@ -81,6 +65,20 @@ echo '<script type="text/javascript">',
 
  <p class="hugeT">Ranking</p>
  <br>
+ <div class="dropdown">
+    <div class="dropdown-button">Type    v</div>
+    <div class="dropdown-content">
+    <label><input type="checkbox" value="Beer"> Beer</label>
+<label><input type="checkbox" value="Wine"> Wine</label>
+<label><input type="checkbox" value="Gin"> Gin</label>
+<label><input type="checkbox" value="Rum"> Rum</label>
+<label><input type="checkbox" value="Tequila"> Tequila</label>
+<label><input type="checkbox" value="Vodka"> Vodka</label>
+<label><input type="checkbox" value="Whisky"> Whisky</label>
+<label><input type="checkbox" value="Champagne"> Champagne</label>
+
+    </div>
+</div>
 <table>
 <tr>
     <th>

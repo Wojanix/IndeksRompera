@@ -1,56 +1,35 @@
-.rankingTable{
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    backdrop-filter: blur( 8.5px );
-    -webkit-backdrop-filter: blur( 8.5px );
-    border: 1px solid rgba(0, 0, 0, 0.18);
-    display: flex;
-    flex-direction: column;
-    width: 80vw;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    min-width: 300px;
-    height: fit-content;
-    padding: 50px 80px 60px 80px;
-    border-radius: 15px;
-    
 
-    transform: translate(0,-70px);
-    transition: .5s;
-}
-
-.filters{
-    margin: 30px;
-}
 
 th{
     background-color: #c99348;
 }
 
+th:first-of-type{
+    border-top-left-radius: 8px;
+}
+
+
+th:last-of-type{
+    border-top-right-radius: 8px;
+}
+
+
 td, th{
     padding: 8px;
     color: rgb(0, 0, 0);
 }
-table{
-    height: 70vh;
-    overflow: hidden;
-    scroll-behavior: auto;
-}
-
 tbody{
     border-radius: 8px;
 }
 tr{
     transition: .5s;
     cursor: pointer;
-    background: rgba(204, 204, 204, 0.6);
+    background: rgba(244, 244, 244, 0.8);
     height: 100px;
 }
 
 tr:nth-child(even){
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.8);
 }
 
 
