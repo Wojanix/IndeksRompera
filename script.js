@@ -5,6 +5,7 @@ const percent = document.getElementById("percent");
 console.log("cos");
 
 const calculateRomperIndex = () => {
+  console.log("sdd");
   document.getElementById("index").innerHTML =
     (amount.value * percent.value) / 100 / price.value;
 };
