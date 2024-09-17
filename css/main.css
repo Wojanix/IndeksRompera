@@ -1,16 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@font-face {
+  font-family: Minecraft;
+  src: url("./fonts/Minecraft-RegularWPolish.otf");
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: Minecraft;
   }
   
   body {
-    font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     color: #333;
     background-image: url('./images/background.jpg');
+    backdrop-filter:blur(7px);
+    overflow:hidden;
+    overflow-y: auto;
     background-repeat: repeat;
     width: 100%;
     height: 100vh;
@@ -86,7 +92,7 @@
     border: 2px solid grey;
   }
 
-  button {
+  /* button {
     border: none;
     outline: none;
     width: 120px;
@@ -104,6 +110,18 @@
   button:active {
     transform: translateY(5px);
     box-shadow: 0px 0px 0px 0px #845a1f;
+  } */
+
+  button{
+      width: 340px;
+      text-align: center;
+      font-size: 16px;
+      color: white;
+      background-image: url("./images/stone.png");
+      background-repeat: repeat;
+      height: 46px;
+      background-size: 220px;
+      /* backdrop-filter: blur(9px); */
   }
 
   .smallT{
@@ -219,3 +237,240 @@
   flex-direction: row;
   gap: 20px;
 }
+
+
+
+/* add php*/
+
+.form{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0px 0px;
+}
+
+
+
+
+
+/* drink php */
+
+
+.drinkProfile{
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur( 8.5px );
+  -webkit-backdrop-filter: blur( 8.5px );
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  min-width: 300px;
+  height: fit-content;
+  padding: 130px 80px 60px 80px;
+  border-radius: 15px;
+  
+
+  transform: translate(0,-70px);
+  transition: .5s;
+
+}
+body{
+background-blend-mode:multiply;
+}
+
+
+
+
+.avatar{
+  
+  transform: translate(0,50px);
+  z-index: 10000000000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur( 8.5px );
+  -webkit-backdrop-filter: blur( 8.5px );
+  width: 185px;
+  height: 185px;
+  border-radius: 100px;
+}
+
+.avatar img{
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+}
+
+
+
+.numberDrinkInfo{
+  display: block;
+  font-weight: 600;
+  font-size: 19px;
+  color: rgb(59, 59, 59);
+}
+
+.drinkInfo:not(:first-child){
+  /* border-left: 1px solid black; */
+}
+
+.titleDrinkInfo{
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+
+/* nav css */
+
+
+
+.navbar {
+  width: 100%;
+  background-color: rgba(0,0,0,0.85);
+  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur( 8.5px );
+  -webkit-backdrop-filter: blur( 8.5px );
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+/* Navbar links */
+.navbar a {
+  text-align: center;
+  padding: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  display: inline-block;
+}
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: #000;
+}
+
+/* Current/active navbar link */
+.active {
+  background-color: #573b14;
+}
+
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+
+
+
+
+/* ranking php */
+
+
+
+
+
+
+th{
+  background-color: #c99348;
+}
+
+th:first-of-type{
+  border-top-left-radius: 8px;
+}
+
+
+th:last-of-type{
+  border-top-right-radius: 8px;
+}
+
+
+td, th{
+  padding: 8px;
+  color: rgb(0, 0, 0);
+}
+tbody{
+  border-radius: 8px;
+}
+tr{
+  transition: .5s;
+  cursor: pointer;
+  background: rgba(244, 244, 244, 0.8);
+  height: 100px;
+}
+
+tr:nth-child(even){
+  background: rgba(255, 255, 255, 0.8);
+}
+
+
+tr:hover{
+  background-color: #d59d4d;
+}
+
+th a{
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-button {
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: rgb(122, 59, 0);
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.dropdown-content label {
+  display: block;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.dropdown-content label:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown-content input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+
