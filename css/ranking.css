@@ -1,5 +1,32 @@
+.rankingTable{
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 8.5px );
+    -webkit-backdrop-filter: blur( 8.5px );
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+    height: fit-content;
+    padding: 50px 80px 60px 80px;
+    border-radius: 15px;
+    
+
+    transform: translate(0,-70px);
+    transition: .5s;
+}
+
 .filters{
     margin: 30px;
+}
+
+th{
+    background-color: #c99348;
 }
 
 td, th{
@@ -10,11 +37,6 @@ td, th{
 tbody{
     border-radius: 8px;
 }
-th{
-    
-    background: rgba(255, 255, 255, 0.9);
-}
-
 tr{
     transition: .5s;
     cursor: pointer;
@@ -27,7 +49,7 @@ tr:nth-child(even){
 
 
 tr:hover{
-    background-color: rgb(100, 71, 13);
+    background-color: #d59d4d;
 }
 
 th a{

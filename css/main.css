@@ -102,3 +102,98 @@
     transform: translateY(5px);
     box-shadow: 0px 0px 0px 0px #845a1f;
   }
+
+  .smallT{
+    font-size: 13px;
+}
+
+.midT{
+    width: 400px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.bigT{
+    font-size: 23px;
+}
+
+.shortT{
+    width: 170px;
+    text-align: center;
+}
+
+.longT{
+  width: 500px;
+  text-align: center;
+}
+
+.hugeT{
+  font-size: 40px;
+  text-align: center;
+}
+
+
+
+.leftTop a,  .rightTop a{
+  text-decoration: none;
+  color: #845a1f;
+}
+
+.leftTop a:after {
+  content: " - Back";
+  position: relative;
+  opacity: 0;
+  left: -20px;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.leftTop a:hover:after {
+  opacity: 1;
+  left: 0px;
+}
+
+.rightTop a:before {
+  content: " Edit -";
+  position: relative;
+  opacity: 0;
+  right: -12px;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.rightTop a:hover:before {
+  opacity: 1;
+  right: 10px;
+}
+
+.leftTop{
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  font-weight:600;
+  color:#845a1f;
+  cursor: pointer;
+  font-size: 18px;
+  transition: .5s;
+}
+
+.rightTop{
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-weight:600;
+  color:#845a1f;
+  cursor: pointer;
+  font-size: 18px;
+  transition: .5s;
+}
+
+.drinkInfo{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  gap: 25px;
+
+}

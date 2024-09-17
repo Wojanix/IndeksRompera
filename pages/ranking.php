@@ -75,6 +75,12 @@ echo '<script type="text/javascript">',
 </section>
 
 <!-- Table -->
+ <section class="rankingTable">
+ <div class="leftTop"> <a href="ranking.php">| Cofnij</a> </div>
+    <div class="rightTop"><a href="ranking.php">Edytuj |</a></div>
+
+ <p class="hugeT">Ranking</p>
+ <br>
 <table>
 <tr>
     <th>
@@ -150,6 +156,8 @@ foreach($records as $record){
 }
 ?>
 </table>
+
+</section>
 <br><br>
 <p>.</p>
 
