@@ -398,7 +398,53 @@ background-blend-mode:multiply;
     display: block;
   }
 }
+@media screen and (max-width: 1300px) {
+  .countryTd{
+    display: none;
+  }
+  .brandTd{
+    display: none;
+  }
+  .regionTd{
+    display: none;
+  }
+  .typeTd{
+    display: none;
+  }
+}
 
+@media screen and (max-width: 922px) {
+  .quantityTd{
+    display: none;
+  }
+  .percentTd{
+    display: none;
+  }
+  @media screen and (max-width: 700px) {
+    .imageTd{
+      display: none;
+    }
+    .priceTd{
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .ratingTd{
+      display: none;
+    }
+    .idTd{
+      padding: none;
+    }
+  }
+
+  
+}
+@media screen and (max-width: 400px) {
+  .idTd{
+    display: none;
+  }
+}
 
 
 
@@ -454,7 +500,7 @@ th a{
 
 .filters{
   
-  display: flex;
+  display: none;
   flex-direction: row;
   gap: 5px;
   transition: .5s;

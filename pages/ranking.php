@@ -119,41 +119,41 @@ echo '<script type="text/javascript">',
 
 <table>
 <tr>
-    <th>
-        <?php echo "<a href='ranking.php?sort=id&desc=".ifDesc("id")."'>Number</a>"; ?>
+    <th class='idTd'>
+        <?php echo "<a  href='ranking.php?sort=id&desc=".ifDesc("id")."'>Number</a>"; ?>
     </th>
-    <th>
-        <?php echo "<a href='ranking.php?sort=name&desc=".ifDesc("name")."'>Name</a>"; ?>
+    <th class='nameTd'>
+        <?php echo "<a  href='ranking.php?sort=name&desc=".ifDesc("name")."'>Name</a>"; ?>
     </th>
-    <th>
+    <th class='imageTd'>
         <?php echo "<a href='ranking.php?sort=image&desc=".ifDesc("image")."'>Image</a>"; ?>
     </th>
-    <th>
-        <?php echo "<a href='ranking.php?sort=ir&desc=".ifDesc("ir")."'>Indeks</a>"; ?>
+    <th class='indeksTd'>
+        <?php echo "<a  href='ranking.php?sort=ir&desc=".ifDesc("ir")."'>Indeks</a>"; ?>
     </th>
-    <th>
-        <?php echo "<a href='ranking.php?sort=rating&desc=".ifDesc("rating")."'>Rating</a>"; ?>
+    <th class='ratingTd'>
+        <?php echo "<a  href='ranking.php?sort=rating&desc=".ifDesc("rating")."'>Rating</a>"; ?>
     </th>
-    <th>
+    <th  class='priceTd'>
         <?php echo "<a href='ranking.php?sort=price&desc=".ifDesc("price")."'>Price</a>"; ?>
     </th>
-    <th>
-        <?php echo "<a href='ranking.php?sort=quantity&desc=".ifDesc("quantity")."'>Quantity</a>"; ?>
+    <th class='quantityTd'>
+        <?php echo "<a  href='ranking.php?sort=quantity&desc=".ifDesc("quantity")."'>Quantity</a>"; ?>
     </th>
-    <th>
-        <?php echo "<a href='ranking.php?sort=percent&desc=".ifDesc("percent")."'>Percent</a>"; ?>
+    <th class='percentTd'>
+        <?php echo "<a  href='ranking.php?sort=percent&desc=".ifDesc("percent")."'>Percent</a>"; ?>
     </th>
-    <th>
-        <?php echo "<a href='ranking.php?sort=type&desc=".ifDesc("type")."'>Type</a>"; ?>
+    <th class='typeTd'>
+        <?php echo "<a  href='ranking.php?sort=type&desc=".ifDesc("type")."'>Type</a>"; ?>
     </th>
-    <th>
+    <th  class='brandTd'>
         <?php echo "<a href='ranking.php?sort=brand&desc=".ifDesc("brand")."'>Brand</a>"; ?>
     </th>
-    <th>
+    <th class='regionTd'>
         <?php echo "<a href='ranking.php?sort=region&desc=".ifDesc("region")."'>Region</a>"; ?>
     </th>
-    <th>
-        <?php echo "<a href='ranking.php?sort=country&desc=".ifDesc("country")."'>Country</a>"; ?>
+    <th class='countryTd'>
+        <?php echo "<a  href='ranking.php?sort=country&desc=".ifDesc("country")."'>Country</a>"; ?>
     </th>
 </tr>
 
@@ -176,18 +176,18 @@ if(isset($_GET["desc"])){$records = htmlspecialchars($_GET["desc"])==1 ? array_r
 foreach($records as $record){
     echo "
     <tr onclick='window.location = `drink.php?id=`+this.cells[0].textContent'>
-    <td>".$record["id"]."</td>
+    <td class='idTd'>".$record["id"]."</td>
     <td>".$record["name"]."</td>
-    <td><img src='".$record["image"]."' alt='".$record["name"]."' style='width:150px;height:auto;'></td>
-    <td>".$record["ir"]."</td>
-    <td>".$record["rating"]."</td>
-    <td>".$record["price"]."</td>
-    <td>".$record["quantity"]."</td>
-    <td>".$record["percent"]."</td>
-    <td>".$record["type"]."</td>
-    <td>".$record["brand"]."</td>
-    <td>".$record["region"]."</td>
-    <td>".$record["country"]."</td>
+    <td class='imageTd'><img src='".$record["image"]."' alt='".$record["name"]."' style='width:150px;height:auto;'></td>
+    <td class='indeksTd'>".$record["ir"]."</td>
+    <td class='ratingTd'>".$record["rating"]."</td>
+    <td class='priceTd'>".$record["price"]."</td>
+    <td class='quantityTd'>".$record["quantity"]."</td>
+    <td class='percentTd'>".$record["percent"]."</td>
+    <td class='typeTd'>".$record["type"]."</td>
+    <td class='brandTd'>".$record["brand"]."</td>
+    <td class='regionTd'>".$record["region"]."</td>
+    <td class='countryTd'>".$record["country"]."</td>
 </tr>";
 }
 ?>
