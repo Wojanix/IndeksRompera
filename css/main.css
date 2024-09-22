@@ -112,7 +112,7 @@
     box-shadow: 0px 0px 0px 0px #845a1f;
   } */
 
-  button{
+  /* button{
       width: 340px;
       text-align: center;
       font-size: 16px;
@@ -121,8 +121,49 @@
       background-repeat: repeat;
       height: 46px;
       background-size: 220px;
-      /* backdrop-filter: blur(9px); */
-  }
+      backdrop-filter: blur(9px);
+  } */
+
+  .mc-button {
+    background-image: url('./images/stone.png'); 
+    background-size:contain; 
+    width: 70vw;
+    height: 40px;
+    max-width: 400px;
+    color: white;
+    font-family: "Minecraft", sans-serif;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    border: 16px solid linear-gradient(100deg, rgba(170,170,170,1) 50%, rgba(86,86,86,1) 50%);  
+    position: relative;
+    margin: 10px;
+}
+
+/* .mc-button:after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background: rgb(170,170,170);
+background: ;
+  z-index: -1;
+} */
+
+.mc-button:hover {
+    background-color: #858585;
+    background-image: url('./images/stone.png'); /* Tekstura guzika Minecraft */
+    color: #fff;
+}
+
+.mc-button:active {
+    background-color: #4b4b4b;
+    background-image: url('./images/stone.png'); /* Tekstura guzika Minecraft */
+    box-shadow: none;
+}
 
   .smallT{
     font-size: 13px;
