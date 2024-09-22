@@ -17,36 +17,6 @@
   <div class="notification" id="connect"><img src=".././css/images/correct.png" alt="correct" />Connected successfully</div>
 
 <!-- Menu -->
-<div class="mc-menu">
-  <!-- Button -->
-  <button class="mc-button full">
-    <span class="title">Singleplayer</span>
-  </button>
-  <button class="mc-button full">
-    <span class="title">Multiplayer</span>
-  </button>
-  <button class="mc-button full">
-    <span class="title">Minecraft Realms</span>
-  </button>
-
-  <!-- Double button -->
-  <div class="double">
-    <button class="mc-button full">
-      <span class="title">Options</span>
-    </button>
-    <button class="mc-button full">
-      <span class="title">Quit Game</span>
-    </button>
-  </div>
-
-  <!-- Lang button -->
-  <button class="mc-button full lang">
-    <span class="title">
-      <img src="https://i.ibb.co/99187Lk/lang.png" alt="Lang">
-    </span>
-  </button>
-</div>
-
     <div class="container">
         <h2>Oblicz Wskaźnik Rompera</h2>
         <br>

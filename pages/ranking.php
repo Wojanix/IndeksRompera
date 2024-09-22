@@ -26,10 +26,69 @@ function ifDesc($newSort){
 }
 ?>
 
-<!-- Filters -->
 <div class="notification" id="connect"><img src=".././css/images/correct.png" alt="correct">Connected successfully</div>
+<!-- Filters -->
+<section class="rankingTable">
+ <div class="leftTop"> <a href="ranking.php">| Cofnij</a> </div>
+    <div class="rightTop"><a href="ranking.php">Edytuj |</a></div>
 
+ <p class="hugeT">Ranking</p>
+ <br>
 
+ <div class="filters">
+ <div class="glass">&#x1F50E;&#xFE0E;</div>
+    <input type="text" name="search" id="search" placeholder="     Search...">
+ <div class="dropdown">
+    <div class="dropdown-button">Price v</div>
+    <div class="dropdown-number">
+        <input type="number" class="inputMinMax" name="minPrice" id="minPrice" placeholder="min">
+        <input type="number" class="inputMinMax" name="maxPrice" id="maxPrice" placeholder="max">
+    </div>
+</div>
+<div class="dropdown">
+    <div class="dropdown-button">Indeks v</div>
+    <div class="dropdown-number">
+        <input type="number" class="inputMinMax" name="minPrice" id="minPrice" placeholder="min">
+        <input type="number" class="inputMinMax" name="maxPrice" id="maxPrice" placeholder="max">
+    </div>
+</div>
+<div class="dropdown">
+    <div class="dropdown-button">Rating v</div>
+    <div class="dropdown-number">
+        <input type="number" class="inputMinMax" name="minPrice" id="minPrice" placeholder="min">
+        <input type="number" class="inputMinMax" name="maxPrice" id="maxPrice" placeholder="max">
+    </div>
+</div>
+ <div class="dropdown">
+    <div class="dropdown-button">Type v</div>
+    <div class="dropdown-content">
+        <label><input type="checkbox" value="Beer"> Beer</label>
+        <label><input type="checkbox" name="type" value="Wine"> Wine</label>
+        <label><input type="checkbox" name="type" value="Gin"> Gin</label>
+        <label><input type="checkbox" name="type" value="Rum"> Rum</label>
+        <label><input type="checkbox" name="type" value="Tequila"> Tequila</label>
+        <label><input type="checkbox" name="type" value="Vodka"> Vodka</label>
+        <label><input type="checkbox" name="type" value="Whisky"> Whisky</label>
+        <label><input type="checkbox" name="type" value="Champagne"> Champagne</label>
+    </div>
+</div>
+
+<div class="dropdown">
+    <div class="dropdown-button">Country v</div>
+    <div class="dropdown-content">
+    <label><input type="checkbox" value="Beer"> Beer</label>
+    <label><input type="checkbox" name="country" value="Wine"> Wine</label>
+    <label><input type="checkbox" name="country" value="Gin"> Gin</label>
+    <label><input type="checkbox" name="country" value="Rum"> Rum</label>
+    <label><input type="checkbox" name="country" value="Tequila"> Tequila</label>
+    <label><input type="checkbox" name="country" value="Vodka"> Vodka</label>
+    <label><input type="checkbox" name="country" value="Whisky"> Whisky</label>
+    <label><input type="checkbox" name="country" value="Champagne"> Champagne</label>
+    </div>
+</div>
+
+<button type="submit">Submit</button>
+</div>
 
 
 <?php
@@ -57,26 +116,7 @@ echo '<script type="text/javascript">',
 
 
 <!-- Table -->
- <section class="rankingTable">
- <div class="leftTop"> <a href="ranking.php">| Cofnij</a> </div>
-    <div class="rightTop"><a href="ranking.php">Edytuj |</a></div>
 
- <p class="hugeT">Ranking</p>
- <br>
- <div class="dropdown">
-    <div class="dropdown-button">Type    v</div>
-    <div class="dropdown-content">
-    <label><input type="checkbox" value="Beer"> Beer</label>
-<label><input type="checkbox" value="Wine"> Wine</label>
-<label><input type="checkbox" value="Gin"> Gin</label>
-<label><input type="checkbox" value="Rum"> Rum</label>
-<label><input type="checkbox" value="Tequila"> Tequila</label>
-<label><input type="checkbox" value="Vodka"> Vodka</label>
-<label><input type="checkbox" value="Whisky"> Whisky</label>
-<label><input type="checkbox" value="Champagne"> Champagne</label>
-
-    </div>
-</div>
 <table>
 <tr>
     <th>
@@ -169,7 +209,7 @@ function sortRecords(array &$records, string $sortKey) {
         if ($a[$sortKey] == $b[$sortKey]) {
             return 0;
         }
-        if ($sortKey === 'rating') {
+        if ($sortKey === 'ir'||$sortKey === 'rating'||$sortKey === 'price'||$sortKey === 'quantity'||$sortKey === 'percent') {
             return $a[$sortKey] <=> $b[$sortKey];
         }
         return strcmp($a[$sortKey], $b[$sortKey]);

@@ -66,11 +66,11 @@
   }
 
   .input {
-    max-width: 600px;
-    width: 99%;
+    width: 70vw;
+    height: 40px;
+    max-width: 400px;
     height: 45px;
     padding: 12px;
-    border-radius: 12px;
     margin: 2px;
     border: 1.5px solid lightgrey;
     outline: none;
@@ -92,39 +92,8 @@
     border: 2px solid grey;
   }
 
-  /* button {
-    border: none;
-    outline: none;
-    width: 120px;
-    background-color: #573b14;
-    padding: 10px 20px;
-    font-size: 12px;
-    font-weight: 700;
-    color: #fff;
-    border-radius: 5px;
-    transition: all ease 0.1s;
-    box-shadow: 0px 5px 0px 0px #845a1f;
-    margin: 6px 0;
-  }
-  
-  button:active {
-    transform: translateY(5px);
-    box-shadow: 0px 0px 0px 0px #845a1f;
-  } */
-
-  /* button{
-      width: 340px;
-      text-align: center;
-      font-size: 16px;
-      color: white;
-      background-image: url("./images/stone.png");
-      background-repeat: repeat;
-      height: 46px;
-      background-size: 220px;
-      backdrop-filter: blur(9px);
-  } */
-
-  .mc-button {
+ 
+  button {
     background-image: url('./images/stone.png'); 
     background-size:contain; 
     width: 70vw;
@@ -141,11 +110,10 @@
     border-right: 3px solid #565656;
     border-bottom: 3px solid #565656;
     position: relative;
-    margin: 10px;
     text-shadow: 4px 3px 1px rgba(65, 65, 65,0.85);
 }
 
-.mc-button:after {
+button:after {
   content: '';
   position: absolute;
   top: -5px;
@@ -157,7 +125,12 @@ background: rgb(0, 0, 0);
   z-index: -1;
 }
 
-.mc-button:hover {
+button:hover::after{
+  background: rgb(68, 78, 120)
+
+}
+
+button:hover {
   color: #eaf0ac;
   background-image: linear-gradient(rgba(149,167,253,0.5),
   rgba(149,167,253,0.5)), url("./images/stone.png");
@@ -167,7 +140,7 @@ background: rgb(0, 0, 0);
   border-bottom: 3px solid rgba(112,125,193,0.5);
 }
 
-.mc-button:active {
+button:active {
   color: #b4b4b4;
   background-image: linear-gradient(rgba(0, 0, 0, 0.2),
                        rgba(0, 0, 0, 0.2)), url("./images/stone.png");
@@ -479,14 +452,33 @@ th a{
   font-weight: 600;
 }
 
+.filters{
+  
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  transition: .5s;
+}
+
+.glass{
+  font-size: 28px;
+  cursor: pointer;
+  left: 0;
+  display: inline-block;
+}
+
+.glass:hover + .filters{
+  display: flex;
+}
+
+
 .dropdown {
   position: relative;
-  display: inline-block;
 }
 
 .dropdown-button {
   color: white;
-  padding: 10px 20px;
+  padding: 12px 20px;
   font-size: 16px;
   border: none;
   cursor: pointer;
@@ -494,6 +486,9 @@ th a{
   background-color: rgb(122, 59, 0);
 }
 
+.inputMinMax{
+  width: 100px;
+}
 
 .dropdown-content {
   display: none;
@@ -503,6 +498,17 @@ th a{
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   border-radius: 4px;
+}
+
+.dropdown-number {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+  
 }
 
 .dropdown-content label {
@@ -523,6 +529,10 @@ th a{
   display: block;
 }
 
+.dropdown:hover .dropdown-number {
+  display: flex;
+  flex-direction: row;
+}
 
 
 
