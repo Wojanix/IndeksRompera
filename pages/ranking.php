@@ -159,7 +159,7 @@ echo '<script type="text/javascript">',
 
 
 <?php
-$sql = "SELECT * FROM drinks"; 
+$sql = "SELECT * FROM drink"; 
 $records = mysqli_query($conn, $sql);
 
 

@@ -58,7 +58,7 @@ echo '<script type="text/javascript">',
 
 if(isset($_POST["submit"])){
   echo $_POST["name"];
-  $query = "INSERT INTO `drinks` (`Name`, `image`, `ir`, `rating`, `price`, `quantity`, `percent`, `type`, `brand`, `country`, `region`) 
+  $query = "INSERT INTO `drink` (`Name`, `image`, `ir`, `rating`, `price`, `quantity`, `percent`, `type`, `brand`, `country`, `region`) 
             VALUES (
             '".$_POST["name"]."', 
             '".$_POST["image"]."', 

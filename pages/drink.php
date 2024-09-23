@@ -35,7 +35,7 @@ echo '<script type="text/javascript">',
 '</script>';
 
 
-$sql = "SELECT * FROM drinks WHERE id like ".$_GET["id"]." LIMIT 1"; 
+$sql = "SELECT * FROM drink WHERE id like ".$_GET["id"]." LIMIT 1"; 
 $result = mysqli_query($conn, $sql);
 
 $record = mysqli_fetch_assoc($result);
