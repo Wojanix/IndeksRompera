@@ -22,3 +22,12 @@ const connected = () => {
 const redirect = (tr) => {
   console.log(tr);
 };
+
+function displayComments() {
+  let x = document.getElementById("commentContainer");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}

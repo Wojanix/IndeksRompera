@@ -48,12 +48,12 @@ $record = mysqli_fetch_assoc($result);
 <section class="drinkProfile">
     
     <div class="leftTop"> <a href="ranking.php">| Cofnij</a> </div>
-    <div class="rightTop"><a href="ranking.php">Edytuj |</a></div>
+    <div class="rightTop"><a onclick="displayComments()">Komentarz +</a></div>
 
     <div class="bigT"><?php echo  $record["name"];?></div>
     <p class="shortT smallT">Napój typu <?php echo  $record["type"];?></p>
     <br>
-    <p class="midT"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, vero aliquam? Omnis culpa dolor 
+    <p class="midT"> <?php echo "VERY GOOD ALCOHOL JEST Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor molestiae assumenda" ;?>
     </p>
     <div class="drinkInfo">
         <div><span class="numberDrinkInfo"><?php echo  $record["price"];?></span><span class="titleDrinkInfo">Price</span></div>
@@ -62,7 +62,33 @@ $record = mysqli_fetch_assoc($result);
    
 </div>
 
-        <button>Show More</button>
+        <button onclick="displayComments()">Show More</button>
+        <section id="commentContainer">
+            <br>
+        <?php
+$sql = "SELECT * FROM comment where drink_id like ".$record["id"]; 
+$records = mysqli_query($conn, $sql);
+if($records == null){
+    echo "Fuck";
+}
+
+foreach($records as $record){
+    echo "
+    <div class='comment'>
+        <div class='commentUser'>".
+            $record["user_id"].
+        "</div>
+        <div class='commentContent'>".
+            $record["content"]."
+        </div>
+        <div class='likes'>
+            <span class='like'>&#128077;".$record["likes"]."</span>
+            <span class='like'>&#x1F44E;".$record["dislikes"]."</span>
+        </div>
+    </div>";
+}
+?>
+        </section>
     </section>
    
 </body>
