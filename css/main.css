@@ -14,7 +14,6 @@
     background-color: #f0f0f0;
     color: #333;
     background-image: url('./images/background.jpg');
-    backdrop-filter:blur(7px);
     overflow:hidden;
     overflow-y: auto;
     background-repeat: repeat;
@@ -35,13 +34,12 @@
     border: 1px solid rgba(0, 0, 0, 0.18);
     display: flex;
     flex-direction: column;
-    width: 80vw;
+    width: 70vw;
+    min-width: 300px; 
     gap: 10px;
     align-items: center;
     justify-content: center;
-    min-width: 300px;
-    height: fit-content;
-    padding: 50px 80px 60px 80px;
+    padding: 10vh 80px 10vh 80px;
     border-radius: 15px;   
 
     transform: translate(0,-70px);
@@ -299,7 +297,8 @@ button:active {
   border-radius: 15px;
   
 
-  transform: translate(0,-70px);
+  transform: translate(0,-40px);
+  
   transition: .5s;
 
 }
@@ -398,7 +397,7 @@ background-blend-mode:multiply;
     display: block;
   }
 }
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1700px) {
   .countryTd{
     display: none;
   }

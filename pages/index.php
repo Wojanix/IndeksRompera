@@ -17,16 +17,7 @@
   <div class="notification" id="connect"><img src=".././css/images/correct.png" alt="correct" />Connected successfully</div>
 
 <!-- Menu -->
-    <div class="container">
-        <h2>Oblicz Wskaźnik Rompera</h2>
-        <br>
-      <div><input class="input" id="price" type="number" placeholder="Cena" /></div>
-      <div><input class="input" id="amount" type="number" placeholder="Pojemność ml" /></div>
-      <div><input class="input" id="percent" type="number" placeholder="Procent" /></div>
-      <button onclick="calculateRomperIndex()">Oblicz</button>
-      <div id="index"></div>
-    </div>
-
+    
     <?php
 
 $servername = "localhost";
@@ -45,7 +36,26 @@ if ($conn->connect_error) {
 echo '<script type="text/javascript">',
 'connected();',
 '</script>';
-
+$ir = 0;
+if(floatval($_GET["price"])>0 &&floatval($_GET["percent"])>0 &&floatval($_GET["quantity"])>0 ){$ir= bcdiv(floatval($_GET["quantity"])*floatval($_GET["percent"])*0.01/floatval($_GET["price"]),1,2);} 
+$beforeRecord = mysqli_query($conn, "SELECT * from drinks where ir>=".$ir." order by ir asc limit 1");
+$aferRecord = mysqli_query($conn, "SELECT * from drinks where ir<".$ir." order by ir desc limit 1");
 ?>
+
+
+
+<div class="container">
+        <h2>Oblicz Wskaźnik Rompera</h2>
+        <br>
+        <form action="">
+      <div><input required class="input" name="price" type="float" placeholder="Cena" /></div>
+      <div><input required class="input" name="quantity" type="number" placeholder="Pojemność ml" /></div>
+      <div><input required class="input" name="percent" type="number" placeholder="Procent" /></div>
+      <button type="submit">Submit!</button>
+      </form>
+      <div id="index"><?php if($ir>0) echo $ir;?></div>
+     
+    </div>
+
   </body>
 </html>
