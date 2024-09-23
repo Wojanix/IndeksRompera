@@ -20,6 +20,7 @@
     <div class="rightTop"><a href="ranking.php">Edytuj |</a></div>
 
 <form class="centerCol" action="" method="POST">
+  <br>
     <h2>Pochwal Się Swoją Bestią</h2>
   <span class="form">
    <input required class="input" name="name" id="name" type="text" placeholder="Nazwa" />

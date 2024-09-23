@@ -20,10 +20,9 @@
   }
   
   /* Navbar links on mouse-over */
-  .navbar a:hover {
-    background-color: #000;
-  }
-  
+.navbar:hover a{
+  color: red;
+}
   /* Current/active navbar link */
   .active {
     background-color: #573b14;
