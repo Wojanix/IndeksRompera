@@ -63,31 +63,49 @@ $record = mysqli_fetch_assoc($result);
 </div>
 
         <button onclick="displayComments()">Show More</button>
-        <section id="commentContainer">
+        <section id="commentContainer" style="display: none;">
             <br>
         <?php
 $sql = "SELECT * FROM comment where drink_id like ".$record["id"]; 
 $records = mysqli_query($conn, $sql);
-if($records == null){
-    echo "Fuck";
-}
 
-foreach($records as $record){
-    echo "
-    <div class='comment'>
-        <div class='commentUser'>".
-            $record["user_id"].
-        "</div>
-        <div class='commentContent'>".
-            $record["content"]."
-        </div>
-        <div class='likes'>
-            <span class='like'>&#128077;".$record["likes"]."</span>
-            <span class='like'>&#x1F44E;".$record["dislikes"]."</span>
+
+echo "<div class='addComment'>
+        <textarea rows='4' cols='50' placeholder='Write your comment'></textarea>
+        <div>
+            <button class='smallbutton'>Submit</button>
         </div>
     </div>";
+
+if(mysqli_num_rows($records) === 0){
+    echo "
+        <div class='comment'>
+            <div class='commentContent'>
+                No comments yet!
+            </div>
+        </div>";
+} else{
+    foreach($records as $record){
+        echo "
+        <div class='comment'>
+            <div class='commentUser'>".
+                $record["user_id"].
+            "</div>
+            <div class='commentContent'>".
+                $record["content"]."
+            </div>
+            <div class='likes'>
+                <span class='like'>&#128077;".$record["likes"]."</span>
+                <span class='like'>&#x1F44E;".$record["dislikes"]."</span>
+            </div>
+        </div>";
+    } 
 }
+
+
+
 ?>
+
         </section>
     </section>
    
