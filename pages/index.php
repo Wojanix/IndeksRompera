@@ -51,7 +51,7 @@ $aferRecord = mysqli_query($conn, "SELECT * from drink where ir<".$ir." order by
 <div class="container">
         <h2>Oblicz Wskaźnik Rompera</h2>
         <br>
-        <form action="">
+        <form action="" class='centerCol gap10'>
       <div><input required class="input" name="price" type="float" placeholder="Cena" /></div>
       <div><input required class="input" name="quantity" type="number" placeholder="Pojemność ml" /></div>
       <div><input required class="input" name="percent" type="number" placeholder="Procent" /></div>
