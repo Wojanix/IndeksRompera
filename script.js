@@ -11,14 +11,23 @@ const calculateRomperIndex = () => {
 };
 
 const connected = () => {
-  console.log("f");
   document.getElementById("connect").style.display = "block";
   setTimeout(() => {
     document.getElementById("connect").style.display = "none";
   }, 1000);
-  console.log("2");
 };
-
+const dataSent = () => {
+  document.getElementById("dataSent").style.display = "block";
+  setTimeout(() => {
+    document.getElementById("dataSent").style.display = "none";
+  }, 1000);
+};
+const dataError = () => {
+  document.getElementById("dataError").style.display = "block";
+  setTimeout(() => {
+    document.getElementById("dataError").style.display = "none";
+  }, 1000);
+};
 const redirect = (tr) => {
   console.log(tr);
 };

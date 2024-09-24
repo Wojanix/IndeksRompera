@@ -12,7 +12,9 @@ echo $_GET["id"];
 <body>
 <?php include '../components/header.php';?>
 
-<div class="notification" id="connect"><img src=".././css/images/correct.png" alt="correct">Connected successfully</div>
+<div style="display:none;" class="notification correct" id="connect"><img src=".././css/images/correct.png" alt="correct">Connected successfully</div>
+<div style="display:none;" class="notification correct" id="dataSent"><img src=".././css/images/correct.png" alt="sent">Data sent</div>
+<div style="display:none;" class="notification error" id="dataError"><img src=".././css/images/error.png" alt="error">Data error</div>
 
 
 <?php
@@ -34,6 +36,30 @@ echo '<script type="text/javascript">',
 'connected();',
 '</script>';
 
+if(isset($_POST["submit"])){
+    echo $_POST["name"];
+    $query = "INSERT INTO `comment` (`Name`, `image`, `ir`, `rating`, `price`, `quantity`, `percent`, `type`, `brand`, `country`, `region`) 
+              VALUES (
+              '".$_POST["name"]."', 
+              '".$_POST["image"]."', 
+              '".$_POST["percent"]*$_POST["quantity"]*0.01/$_POST["price"]."', 
+              '".$_POST["rating"]."', 
+              '".$_POST["price"]."', 
+              '".$_POST["quantity"]."', 
+              '".$_POST["percent"]."', 
+              '".$_POST["type"]."', 
+              '".$_POST["brand"]."', 
+              '".$_POST["country"]."', 
+              '".$_POST["region"]."');";
+    if(mysqli_query($conn, $query)){
+        echo '<script type="text/javascript">',
+        'dataSent();',
+        '</script>';
+  } else{echo '<script type="text/javascript">',
+    'dataError();',
+    '</script>';
+  }
+  }
 
 $sql = "SELECT * FROM drink WHERE id like ".$_GET["id"]." LIMIT 1"; 
 $result = mysqli_query($conn, $sql);
@@ -66,20 +92,25 @@ $record = mysqli_fetch_assoc($result);
         <section id="commentContainer" style="display: none;">
             <br>
         <?php
+
+
 $sql = "SELECT * FROM comment where drink_id like ".$record["id"]; 
 $records = mysqli_query($conn, $sql);
 
 
-echo "<div class='addComment'>
-        <textarea rows='4' cols='50' placeholder='Write your comment'></textarea>
+
+
+echo "
+<form action='' method='POST'><div class='addComment'>
+        <textarea rows='4' cols='50' placeholder='Write your comment' required name='textarea'></textarea>
         <div>
-            <button class='smallbutton'>Submit</button>
+            <button class='smallbutton' type='submit'>Submit</button>
         </div>
-    </div>";
+    </div></form>";
 
 if(mysqli_num_rows($records) === 0){
     echo "
-        <div class='comment'>
+        <div class='comment noComment'>
             <div class='commentContent'>
                 No comments yet!
             </div>
