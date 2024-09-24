@@ -37,20 +37,7 @@ echo '<script type="text/javascript">',
 '</script>';
 
 if(isset($_POST["submit"])){
-    echo $_POST["name"];
-    $query = "INSERT INTO `comment` (`Name`, `image`, `ir`, `rating`, `price`, `quantity`, `percent`, `type`, `brand`, `country`, `region`) 
-              VALUES (
-              '".$_POST["name"]."', 
-              '".$_POST["image"]."', 
-              '".$_POST["percent"]*$_POST["quantity"]*0.01/$_POST["price"]."', 
-              '".$_POST["rating"]."', 
-              '".$_POST["price"]."', 
-              '".$_POST["quantity"]."', 
-              '".$_POST["percent"]."', 
-              '".$_POST["type"]."', 
-              '".$_POST["brand"]."', 
-              '".$_POST["country"]."', 
-              '".$_POST["region"]."');";
+    $query = "INSERT INTO `comment` (`drink_id`, `user_id`, `content`) VALUES (".$_GET["id"].", '5', '".$_POST["textarea"]."');";
     if(mysqli_query($conn, $query)){
         echo '<script type="text/javascript">',
         'dataSent();',
@@ -94,7 +81,7 @@ $record = mysqli_fetch_assoc($result);
         <?php
 
 
-$sql = "SELECT * FROM comment where drink_id like ".$record["id"]; 
+$sql = "SELECT * FROM comment where drink_id like ".$_GET["id"]; 
 $records = mysqli_query($conn, $sql);
 
 
@@ -104,7 +91,7 @@ echo "
 <form action='' method='POST'><div class='addComment'>
         <textarea rows='4' cols='50' placeholder='Write your comment' required name='textarea'></textarea>
         <div>
-            <button class='smallbutton' type='submit'>Submit</button>
+            <button class='smallbutton' type='submit' name='submit'>Submit</button>
         </div>
     </div></form>";
 

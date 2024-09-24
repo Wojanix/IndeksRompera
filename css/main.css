@@ -606,14 +606,15 @@ th a{
   font-weight: 600;
 }
 .comment{
-  margin: 10px;
-  gap: 10px;
+  margin: 40px 0 40px 0;
+  gap: 4px;
   display: flex;
   flex-direction: column;
 }
 
 .like, .dislike{
   cursor: pointer;
+  opacity: 0.9;
 }
 
 
