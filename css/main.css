@@ -99,7 +99,7 @@
   button {
     background-image: url('./images/stone.png'); 
     background-size:contain; 
-    width: 70vw;
+    width: 40vw;
     height: 40px;
     max-width: 400px;
     color: white;
@@ -181,6 +181,7 @@ button:active {
 
 .bigT{
     font-size: 23px;
+    text-align: center;
 }
 
 .shortT{
@@ -362,7 +363,7 @@ background-blend-mode:multiply;
   font-size: 19px;
   color: rgb(59, 59, 59);
 }
-  
+
 
 .titleDrinkInfo{
   font-size: 14px;
@@ -448,6 +449,13 @@ background-blend-mode:multiply;
     }
     .priceTd{
       display: none;
+    }
+    .rightTop,.leftTop{
+      display: none;
+    }
+
+    .midT{
+      width: 250px;
     }
   }
 
