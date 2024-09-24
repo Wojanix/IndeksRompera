@@ -43,7 +43,11 @@ if(isset($_GET["price"])){
   } 
 }
 $beforeRecord = mysqli_query($conn, "SELECT * from drink where ir>=".$ir." order by ir asc limit 1");
-$aferRecord = mysqli_query($conn, "SELECT * from drink where ir<".$ir." order by ir desc limit 1");
+$aferRecord =mysqli_query($conn, "SELECT * from drink where ir<".$ir." order by ir desc limit 1");
+
+$afterRecord = mysqli_fetch_assoc($afterRecord);
+print_r($aferRecord);
+
 ?>
 
 
@@ -57,7 +61,9 @@ $aferRecord = mysqli_query($conn, "SELECT * from drink where ir<".$ir." order by
       <div><input required class="input" name="percent" type="number" placeholder="Procent" /></div>
       <button type="submit">Submit!</button>
       </form>
-      <div id="index"><?php if($ir>0) echo $ir;?></div>
+      <br>
+      <div id="index"><?php if($ir>0) echo "Indeks Rompera dla twojej bestii to ".$ir;?></div>
+      <div id="index"> <?php if($ir>0) echo "Jest tuż przed".$afterRecord["name"];  ?></div>
      
     </div>
 
