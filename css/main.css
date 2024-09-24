@@ -362,10 +362,7 @@ background-blend-mode:multiply;
   font-size: 19px;
   color: rgb(59, 59, 59);
 }
-
-.drinkInfo:not(:first-child){
-  /* border-left: 1px solid black; */
-}
+  
 
 .titleDrinkInfo{
   font-size: 14px;

@@ -41,12 +41,14 @@ if(isset($_GET["price"])){
   if(floatval($_GET["price"])>0 &&floatval($_GET["percent"])>0 &&floatval($_GET["quantity"])>0 ){
     $ir= bcdiv(floatval($_GET["quantity"])*floatval($_GET["percent"])*0.01/floatval($_GET["price"]),1,2);
   } 
+  if($ir>0){
+    $beforeRecord = mysqli_query($conn, "SELECT * from drink where ir>=".$ir." order by ir asc limit 1");
+    $afterRecord = mysqli_query($conn, "SELECT * from drink where ir<".$ir." order by ir desc limit 1");
+    $afterRecord = mysqli_fetch_row($afterRecord);
+    $beforeRecord = mysqli_fetch_row($beforeRecord);
+  }
 }
-$beforeRecord = mysqli_query($conn, "SELECT * from drink where ir>=".$ir." order by ir asc limit 1");
-$aferRecord =mysqli_query($conn, "SELECT * from drink where ir<".$ir." order by ir desc limit 1");
 
-$afterRecord = mysqli_fetch_assoc($afterRecord);
-print_r($aferRecord);
 
 ?>
 
@@ -63,7 +65,7 @@ print_r($aferRecord);
       </form>
       <br>
       <div id="index"><?php if($ir>0) echo "Indeks Rompera dla twojej bestii to ".$ir;?></div>
-      <div id="index"> <?php if($ir>0) echo "Jest tuż przed".$afterRecord["name"];  ?></div>
+      <div id="index"><?php if($ir>0) echo "Jest tuż przed ".$afterRecord["1"]." a za ".$beforeRecord["1"];  ?></div>
      
     </div>
 
