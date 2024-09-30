@@ -15,7 +15,39 @@ echo $_GET["id"];
 <div style="display:none;" class="notification correct" id="connect"><img src=".././css/images/correct.png" alt="correct">Connected successfully</div>
 <div style="display:none;" class="notification correct" id="dataSent"><img src=".././css/images/correct.png" alt="sent">Data sent</div>
 <div style="display:none;" class="notification error" id="dataError"><img src=".././css/images/error.png" alt="error">Data error</div>
+<script>
+     $(document).ready(function() {
+    $('.like, .dislike').on('click', function() {
+        var drinkID = $(this).data('drink-id');
+        var userID = $(this).data('user-id');
+        var type = $(this).data('type'); // 'like' or 'dislike'
 
+        console.log(type)
+        
+        $.ajax({
+            url: 'process.php',
+            type: 'POST',
+            data: {
+                drink_id: drinkID,
+                user_id: userID,
+                action_type: type
+            },
+            success: function(response) {
+                // Update the like or dislike count based on the response
+                if (type === 'like') {
+                    $('.like-count').text(response.likes);
+                } else if (type === 'dislike') {
+                    $('.dislike-count').text(response.dislikes);
+                }
+            },
+            error: function() {
+                alert('An error occurred. Please try again.');
+            }
+        });
+    });
+});
+
+    </script>
 
 <?php
 
@@ -37,7 +69,7 @@ echo '<script type="text/javascript">',
 '</script>';
 
 if(isset($_POST["submit"])){
-    $query = "INSERT INTO `comment` (`drink_id`, `user_id`, `content`) VALUES (".$_GET["id"].", '5', '".$_POST["textarea"]."');";
+    $query = "INSERT INTO `comment` (`drink_id`, `user_id`, `content`) VALUES (".$_GET["id"].", '5', '".$_POST["textarea"]."');"; //zmien 5 na user id
     if(mysqli_query($conn, $query)){
         echo '<script type="text/javascript">',
         'dataSent();',
@@ -54,7 +86,7 @@ $result = mysqli_query($conn, $sql);
 $record = mysqli_fetch_assoc($result);
 ?>
 
-
+<!-- start of html code -->
 <div class="avatar">
         <?php echo  "<img src='".$record["image"]."' alt='name'/>"?>
     </div>
@@ -103,18 +135,23 @@ if(mysqli_num_rows($records) === 0){
             </div>
         </div>";
 } else{
-    foreach($records as $record){
+    foreach($records as $comment){
         echo "
         <div class='comment'>
             <div class='commentUser'>".
-                $record["user_id"].
+                $comment["user_id"].
             "</div>
             <div class='commentContent'>".
-                $record["content"]."
+                $comment["content"]."
             </div>
             <div class='likes'>
-                <span class='like'>&#128077;".$record["likes"]."</span>
-                <span class='like'>&#x1F44E;".$record["dislikes"]."</span>
+            <span class='like' data-id='<?=".$comment["id"]."?>' data-user-id='<?=".$comment["user_id"]."?>' data-type='like'>
+                &#128077; <span class='like'>".$comment["likes"]."</span>
+            </span>
+            <span class='dislike' data-id='<?=".$comment["id"]."?>' data-user-id='<?=".$comment["user_id"]."?>' data-type='dislike'>
+                &#x1F44E; <span class='like'>".$comment["dislikes"]."</span>
+            </span>
+
             </div>
         </div>";
     } 
